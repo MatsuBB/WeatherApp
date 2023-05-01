@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".activities.MainActivity">
+
+    <TextView
+        android:id="@+id/locationText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Test"
+        android:textSize="25sp" />
+
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_marginTop="20dp"
+        android:layout_height="300dp"
+        android:src="@drawable/ic_image_placeholder"
+        android:layout_below="@+id/locationText2"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/minimunText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            android:text="min: 12\u2103" />
+
+        <TextView
+            android:id="@+id/currentText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textStyle="bold"
+            android:textSize="40sp"
+            android:text="12\u2103" />
+
+        <TextView
+            android:id="@+id/maximumText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            android:text="max: 12\u2103" />
+
+    </LinearLayout>
+
+</LinearLayout>
