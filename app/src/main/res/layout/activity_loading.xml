@@ -18,7 +18,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Stormy App"
+            android:text="Rainy App :))"
             android:textColor="#FFF"
             android:textStyle="bold"
             android:textSize="35sp" />
