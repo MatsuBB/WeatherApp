@@ -103,7 +103,6 @@ public class MainActivity extends AppCompatActivity {
                 ImageView imageView;
                 public DownloadImageFromInternet(ImageView imageView) {
                     this.imageView=imageView;
-                    Toast.makeText(getApplicationContext(), "Please wait, it may take a few minutes...",Toast.LENGTH_SHORT).show();
                 }
                 protected Bitmap doInBackground(String... urls) {
                     String imageURL=urls[0];
