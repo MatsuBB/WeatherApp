@@ -9,7 +9,7 @@
     tools:context=".activities.MainActivity">
 
     <TextView
-        android:id="@+id/locationText2"
+        android:id="@+id/locationText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -17,6 +17,7 @@
         android:textSize="25sp" />
 
     <ImageView
+        android:id="@+id/conditionImage"
         android:layout_width="300dp"
         android:layout_marginTop="20dp"
         android:layout_height="300dp"
@@ -35,7 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textSize="20sp"
-            android:text="min: 12\u2103" />
+            android:text="min: 00\u2103" />
 
         <TextView
             android:id="@+id/currentText"
@@ -43,8 +44,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textStyle="bold"
-            android:textSize="40sp"
-            android:text="12\u2103" />
+            android:textSize="35sp"
+            android:text="00\u2103" />
 
         <TextView
             android:id="@+id/maximumText"
@@ -52,7 +53,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textSize="20sp"
-            android:text="max: 12\u2103" />
+            android:text="max: 00\u2103"
+            android:textAlignment="textEnd"/>
 
     </LinearLayout>
 

@@ -20,6 +20,7 @@ import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+
 public class LoadingActivity extends AppCompatActivity {
 
     ActivityLoadingBinding binding;
@@ -54,9 +55,11 @@ public class LoadingActivity extends AppCompatActivity {
         fusedLocationClient.getLastLocation().addOnSuccessListener(this, new OnSuccessListener<Location>() {
             @Override
             public void onSuccess(Location location) {
-                if(location != null){
+                if (location != null) {
                     latitude = location.getLatitude();
                     longitude = location.getLongitude();
+                } else {
+                    Log.v(TAG, "Location is NULL");
                 }
             }
         }).addOnFailureListener(new OnFailureListener() {
@@ -69,7 +72,7 @@ public class LoadingActivity extends AppCompatActivity {
 
     }
 
-    public void checkPermission(String permission, int requestCode){
+    public void checkPermission(String permission, int requestCode) {
         if (ActivityCompat.checkSelfPermission(LoadingActivity.this, permission) ==
                 PackageManager.PERMISSION_DENIED) {
             ActivityCompat.requestPermissions(LoadingActivity.this, new String[]{permission},
@@ -81,19 +84,19 @@ public class LoadingActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults){
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode,
                 permissions,
                 grantResults);
 
-        if (requestCode == FINE_LOCATION_PERMISSION_CODE){
-            if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+        if (requestCode == FINE_LOCATION_PERMISSION_CODE) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 Toast.makeText(LoadingActivity.this, "Fine Location Permission Granted", Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(LoadingActivity.this, "Fine Location Permission Denied", Toast.LENGTH_SHORT).show();
             }
         } else if (requestCode == COARSE_LOCATION_PERMISSION_CODE) {
-            if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 Toast.makeText(LoadingActivity.this, "Coarse Location Permission Granted", Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(LoadingActivity.this, "Coarse Location Permission Denied", Toast.LENGTH_SHORT).show();
@@ -101,22 +104,22 @@ public class LoadingActivity extends AppCompatActivity {
         }
     }
 
-    public class MyCountDownTimer extends CountDownTimer{
+    public class MyCountDownTimer extends CountDownTimer {
         // To get the loading bar in the loading screen
         int progress = 0;
 
-        public MyCountDownTimer(long millisInFuture, long countDownInterval){
+        public MyCountDownTimer(long millisInFuture, long countDownInterval) {
             super(millisInFuture, countDownInterval);
         }
 
         @Override
-        public void onTick(long millisUntilFinished){
-            progress = progress + 20; // Porque se actualiza cada 1 seg. y total es 5 seg. = 100 progress
+        public void onTick(long millisUntilFinished) {
+            progress = progress + 20; // Por que se actualiza cada 1 seg. y total es 5 seg. = 100 progress
             binding.loadingProgressBar.setProgress(progress);
         }
 
         @Override
-        public void onFinish(){
+        public void onFinish() {
             Intent intent = new Intent(LoadingActivity.this, MainActivity.class);
             intent.putExtra("LATITUDE", String.valueOf(latitude));
             intent.putExtra("LONGITUDE", String.valueOf(longitude));
